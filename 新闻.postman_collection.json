@@ -1,0 +1,1122 @@
+{
+	"info": {
+		"_postman_id": "53088b0b-b5ad-428b-8cd6-32e57d0957af",
+		"name": "新闻",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31097212",
+		"_collection_link": "https://solar-station-407216.postman.co/workspace/big-event~cca6a6af-0b19-4cba-9637-cab6cf6548d2/collection/31097212-53088b0b-b5ad-428b-8cd6-32e57d0957af?action=share&source=collection_link&creator=31097212"
+	},
+	"item": [
+		{
+			"name": "评论相关接口",
+			"item": [
+				{
+					"name": "新增评论",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newsID\": 5,\r\n    \"userID\": 3,\r\n    \"content\": \"很好的文章！\",\r\n    \"isApproved\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/comments/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"comments",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "分页查询评论",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sno\":\"212106322\",\r\n    \"sname\":\"小红帽\",\r\n    \"major\": \"计算机科学与技术\",\r\n    \"dormitoryNo\": \"东三321\",\r\n    \"moveInDate\": \"2023-11-02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/comments/?pageNum=0&pageSize",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"comments",
+								""
+							],
+							"query": [
+								{
+									"key": "pageNum",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除评论",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/comments/31",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"comments",
+								"31"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据新闻id查询",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newsID\": 5,\r\n    \"userID\": 3,\r\n    \"content\": \"很好的文章！\",\r\n    \"isApproved\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/comments/news?newsID=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"comments",
+								"news"
+							],
+							"query": [
+								{
+									"key": "newsID",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据用户id查询",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newsID\": 5,\r\n    \"userID\": 3,\r\n    \"content\": \"很好的文章！\",\r\n    \"isApproved\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/comments/user?userID=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"comments",
+								"user"
+							],
+							"query": [
+								{
+									"key": "userID",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "用户相关接口",
+			"item": [
+				{
+					"name": "注册",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGFpbXMiOiJ7aWQ9MSwgdXNlcm5hbWU9d2FuZ2JhfSIsImV4cCI6MTcwMTQ4MDIxN30.ha_hK1t_WQK0bnRKDYnNBcuuTC3vvJiRvREOT1cdxwI",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"username\": \"user1\",\r\n    \"password\": \"123456\",\r\n    \"email\": \"user1@gmail.com\",\r\n    \"status\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/users/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"register"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "Lily",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "13145",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "登录",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:8081/users/login?username=user1&password=123456",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"login"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "user1"
+								},
+								{
+									"key": "password",
+									"value": "123456"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取用户详细信息",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGFpbXMiOiJ7aWQ9MSwgdXNlcm5hbWU9d2FuZ2JhfSIsImV4cCI6MTcwMTQ4MDIxN30.ha_hK1t_WQK0bnRKDYnNBcuuTC3vvJiRvREOT1cdxwI",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:8081/users/details/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"details",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新用户基本信息",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userID\": 1,\r\n    \"username\": \"john_doe\",\r\n    \"password\": \"123456\",\r\n    \"email\": \"john@gmail.com\",\r\n    \"phoneNumber\": \"1234567890\",\r\n    \"registrationTime\": \"2024-05-22T21:25:52\",\r\n    \"lastLoginTime\": \"2024-05-22T21:25:52\",\r\n    \"status\": 1,\r\n    \"userPic\": \"https://big-event-gwd.oss-cn-beijing.aliyuncs.com/9bf1cf5b-1420-4c1b-91ad-e0f4631cbed4.png\",\r\n    \"version\": 2,\r\n    \"deleted\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/users/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新用户头像",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:8081/users/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新用户密码",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"old_pwd\":\"123456\",\r\n    \"new_pwd\":\"123123\",\r\n    \"re_pwd\":\"123123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/users/updatePassword?userId=1&oldPassword=123456&newPassword=aaabbb",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"updatePassword"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								},
+								{
+									"key": "oldPassword",
+									"value": "123456"
+								},
+								{
+									"key": "newPassword",
+									"value": "aaabbb"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取用户身份",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "查询用户列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin123",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "john_doe",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8081/users/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "角色相关接口",
+			"item": [
+				{
+					"name": "查询角色列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin123",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "john_doe",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8081/roles/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"roles",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除角色",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin123",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "john_doe",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8081/roles/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"roles",
+								"4"
+							],
+							"query": [
+								{
+									"key": "roleId",
+									"value": "4",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加角色",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin123",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roleName\": \"Admin2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/roles",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询用户角色",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin123",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "john_doe",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8081/userroles/user/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"userroles",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查看角色用户列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin123",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "john_doe",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8081/userroles/role/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"userroles",
+								"role",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新用户角色",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin123",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "john_doe",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8081/users/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "新闻类型接口",
+			"item": [
+				{
+					"name": "新闻类型列表",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/newstypes/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"newstypes",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "新闻类型详情",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/newstypes/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"newstypes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加新闻类型",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"typeName\": \"科学\",\r\n    \"description\": \"科学与技术\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/newstypes",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"newstypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加新闻类型 Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"typeName\": \"科学\",\r\n    \"description\": \"科学与技术\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/newstypes/8",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"newstypes",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "新闻接口",
+			"item": [
+				{
+					"name": "根据id查找",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/news/11",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"news",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "新闻列表分页",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/news/all?page=0&size=5",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"news",
+								"all"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据新闻类型分页查询",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/news/searchNewsType?page=0&size=5&newsTypeID=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"news",
+								"searchNewsType"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "newsTypeID",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新新闻信息",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"newsID\": 1,\r\n        \"title\": \"镜观·回响丨守护红树林，保护生物多样性\",\r\n        \"content\": \"生物多样性关系人类福祉，是人类赖以生存和发展的重要基础。作为最早签署和批准《生物多样性公约》的缔约方之一，中国一贯高度重视生物多样性保护，不断推进生物多样性保护与时俱进、创新发展，取得显著成效，走出了一条中国特色生物多样性保护之路。红树林生态系统保护正是其中的典型案例。...\",\r\n        \"publishTime\": \"2024-05-22T22:40:13\",\r\n        \"authorID\": 1,\r\n        \"newsTypeID\": 1,\r\n        \"views\": 200,\r\n        \"likes\": 11,\r\n        \"commentsCount\": 5,\r\n        \"status\": 1,\r\n        \"imageURL\": null\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/news/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"news",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据作者查询",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/news/searchNewsAuthor?page=0&size=5&authorID=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"news",
+								"searchNewsAuthor"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "authorID",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "admin123",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "admin123",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
